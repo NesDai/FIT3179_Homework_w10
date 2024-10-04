@@ -1,0 +1,31 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "./data/educational_attainment_state_2019.csv", 
+    "format": {
+      "type": "csv"
+    }
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "state",
+      "type": "nominal",
+      "axis": {
+        "title": "State"
+      }
+    },
+    "y": {
+      "field": "rate",
+      "type": "quantitative",
+      "axis": {
+        "title": "Rate"
+      }
+    },
+    "color": {
+      "field": "state",
+      "type": "nominal",
+      "legend": null 
+    }
+  }
+}
