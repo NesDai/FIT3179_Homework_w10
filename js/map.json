@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 450,
+  "projection": {
+    "type": "equalEarth",
+    "scale": 2500,
+    "center": [109, 4]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://nesdai.github.io/FTT3179_Homework_w9/data/malaysia.state.json",
+        "format": { "type": "topojson", "feature": "malaysia.state" }
+      },
+      "mark": { "type": "geoshape", "stroke": "white" },
+      "encoding": {
+        "color": {
+          "field": "Rate",
+          "type": "quantitative",
+          "scale": { "scheme": "blues" }
+        },
+        "tooltip": [
+          { "field": "properties.name", "type": "nominal" },
+          { "field": "Rate", "type": "quantitative" }
+        ]
+      },
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/NesDai/FTT3179_Homework_w9/refs/heads/main/data/total_organ_pledges_state_2019.csv",
+              "format": { "type": "csv" }
+            },
+            "key": "States",
+            "fields": ["Rate"]
+          }
+        }
+      ]
+    }
+  ]
+}
+

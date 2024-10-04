@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [101, 2],
+            [102, 2],
+            [102, 3],
+            [101, 3],
+            [101, 2]
+          ]
+        ]
+      },
+      "properties": {
+        "shapeName": "Test State"
+      }
+    },
+    {
+        "type":"Feature",
+        "geometry": {
+            "type":"MultiPolygon",
+            "coordinates":[{"type":"Feature","geometry":{"type":"Polygon","coordinates":[]},
+
+  ]
+}
