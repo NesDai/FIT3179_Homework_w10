@@ -1,31 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": { "text": "Cheapest European Cities" },
   "data": {
-    "url": "https://raw.githubusercontent.com/NesDai/FIT3179_Homework_w10/refs/heads/main/data/educational_attainment_state_2019.csv",
-    "format": {
-      "type": "csv"
-    }
+    "url": "https://raw.githubusercontent.com/NesDai/FIT3179_Homework_w10/refs/heads/main/data/educational_attainment_state_2019.csv"
   },
   "mark": "bar",
   "encoding": {
-    "x": {
-      "field": "State",
-      "type": "nominal",
-      "axis": {
-        "title": "State"
-      }
-    },
-    "y": {
-      "field": "Rate",
-      "type": "quantitative",
-      "axis": {
-        "title": "Population"
-      }
-    },
-    "color": {
-      "field": "State",
-      "type": "nominal",
-      "legend": null
-    }
+    "x": { "field": "State", "type": "quantitative" },
+    "y": { "field": "Rate", "type": "nominal" }
   }
 }
