@@ -23,7 +23,8 @@
   },
   "hconcat": [
     {
-      "title": "Education Rate by State",
+      "title": "Education Attainment Rate by State",
+      "width": 450,
       "encoding": {
         "x": {
           "field": "state",
@@ -39,11 +40,11 @@
         "color": {
           "field": "state",
           "type": "nominal",
-          "legend": { "title": "Select State" }
+          "legend": { "title": "Filter by State" }
         },
         "tooltip": [
-          { "field": "state", "type": "ordinal" },
-          { "field": "edu_rate", "type": "quantitative" }
+          { "field": "state", "type": "ordinal", "title": "State Name" },
+          { "field": "edu_rate", "type": "quantitative", "title": "Education Attainment Rate" }
         ]
       },
       "layer": [
@@ -99,7 +100,7 @@
       ]
     },
     {
-      "title": "Organ Rate by State",
+      "title": "Organ Donation Pledges by State",
       "layer": [
         {
           "mark": "arc",
@@ -114,8 +115,8 @@
               "type": "nominal"
             },
             "tooltip": [
-              { "field": "state", "type": "ordinal" },
-              { "field": "organ_rate", "type": "quantitative" }
+              { "field": "state", "type": "ordinal", "title": "State Name" },
+              { "field": "organ_rate", "type": "quantitative", "title": "Organ Donation Pledges" }
             ],
             "opacity": {
               "condition": { "selection": "stateSelection", "value": 1 },
