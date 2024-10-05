@@ -2,15 +2,11 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 800,
   "height": 450,
-  "projection": {
-    "type": "equalEarth",
-    "scale": 2500,
-    "center": [109, 4]
-  },
+  "projection": { "type": "equalEarth", "scale": 2500, "center": [109, 4] },
   "layer": [
     {
       "data": {
-        "url": "https://nesdai.github.io/FTT3179_Homework_w9/data/malaysia.state.json",
+        "url": "https://raw.githubusercontent.com/NesDai/FIT3179_Homework_w10/refs/heads/main/data/malaysia.state.json",
         "format": { "type": "topojson", "feature": "malaysia.state" }
       },
       "mark": { "type": "geoshape", "stroke": "white" },
@@ -30,7 +26,7 @@
           "lookup": "properties.name",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/NesDai/FTT3179_Homework_w9/refs/heads/main/data/total_organ_pledges_state_2019.csv",
+              "url": "https://raw.githubusercontent.com/NesDai/FIT3179_Homework_w10/refs/heads/main/data/total_organ_pledges_state_2019.csv",
               "format": { "type": "csv" }
             },
             "key": "States",
@@ -41,4 +37,3 @@
     }
   ]
 }
-
