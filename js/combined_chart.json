@@ -1,0 +1,136 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "values": [
+      { "state": "Johor", "edu_rate": 1780400, "organ_rate": 3037 },
+      { "state": "Kedah", "edu_rate": 934200, "organ_rate": 1518 },
+      { "state": "Kelantan", "edu_rate": 684300, "organ_rate": 296 },
+      { "state": "Kuantan", "edu_rate": 0, "organ_rate": 0 },
+      { "state": "Melaka", "edu_rate": 430200, "organ_rate": 622 },
+      { "state": "Negeri Sembilan", "edu_rate": 493700, "organ_rate": 670 },
+      { "state": "Pahang", "edu_rate": 728600, "organ_rate": 978 },
+      { "state": "Perak", "edu_rate": 1065900, "organ_rate": 1394 },
+      { "state": "Perlis", "edu_rate": 111100, "organ_rate": 652 },
+      { "state": "Pulau Pinang", "edu_rate": 847400, "organ_rate": 2796 },
+      { "state": "Sabah", "edu_rate": 1780500, "organ_rate": 168 },
+      { "state": "Sarawak", "edu_rate": 1299200, "organ_rate": 875 },
+      { "state": "Selangor", "edu_rate": 3559700, "organ_rate": 3625 },
+      { "state": "Terengganu", "edu_rate": 475400, "organ_rate": 795 },
+      { "state": "W.P Kuala Lumpur", "edu_rate": 857300, "organ_rate": 2084 },
+      { "state": "W.P Labuan", "edu_rate": 40900, "organ_rate": 13 },
+      { "state": "W.P Putrajaya", "edu_rate": 38600, "organ_rate": 64 }
+    ]
+  },
+  "hconcat": [
+    {
+      "title": "Education Rate by State",
+      "encoding": {
+        "x": {
+          "field": "state",
+          "type": "ordinal",
+          "axis": { "labelAngle": 45 },
+          "title": "States"
+        },
+        "y": {
+          "field": "edu_rate",
+          "type": "quantitative",
+          "title": "Education Attainment Rate"
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "legend": { "title": "Select State" }
+        },
+        "tooltip": [
+          { "field": "state", "type": "ordinal" },
+          { "field": "edu_rate", "type": "quantitative" }
+        ]
+      },
+      "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "opacity": {
+              "condition": { "selection": "stateSelection", "value": 1 },
+              "value": 0.2
+            }
+          },
+          "selection": {
+            "stateSelection": {
+              "type": "multi",
+              "fields": ["state"],
+              "bind": "legend"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": 0,
+            "dy": 1,
+            "xOffset": 0,
+            "yOffset": -5,
+            "angle": 0,
+            "align": "center",
+            "baseline": "bottom",
+            "font": "sans-serif",
+            "fontSize": 8,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "limit": 34
+          },
+          "encoding": {
+            "text": {
+              "condition": {
+                "selection": "stateSelection",
+                "field": "edu_rate"
+              },
+              "value": "0"
+            },
+            "opacity": {
+              "condition": {
+                "selection": "stateSelection",
+                "value": 1
+              },
+              "value": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Organ Rate by State",
+      "layer": [
+        {
+          "mark": "arc",
+          "encoding": {
+            "theta": {
+              "field": "organ_rate",
+              "type": "quantitative",
+              "title": "Organ Donation Pledges"
+            },
+            "color": {
+              "field": "state",
+              "type": "nominal"
+            },
+            "tooltip": [
+              { "field": "state", "type": "ordinal" },
+              { "field": "organ_rate", "type": "quantitative" }
+            ],
+            "opacity": {
+              "condition": { "selection": "stateSelection", "value": 1 },
+              "value": 0.2
+            }
+          },
+          "selection": {
+            "stateSelection": {
+              "type": "multi",
+              "fields": ["state"],
+              "bind": "legend"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

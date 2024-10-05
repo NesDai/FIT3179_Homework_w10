@@ -21,7 +21,7 @@
           "scale": { "scheme": "blues" }
         },
         "tooltip": [
-          { "field": "properties.name", "type": "nominal" },
+          { "field": "properties.name", "type": "nominal", "title": "State" },
           { "field": "Rate", "type": "quantitative" }
         ]
       },
